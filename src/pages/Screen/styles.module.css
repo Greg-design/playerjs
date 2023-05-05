@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.areaVideo {
+  width: 920px;
+  height: 200px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.btnFullScreen {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.slider {
+  width: 80px;
+}
