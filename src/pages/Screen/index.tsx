@@ -8,15 +8,44 @@ import {
   SoundFilled,
 } from "@ant-design/icons";
 import { Button, Slider, Space, Tooltip, Typography } from "antd";
+import { useState } from "react";
 import style from "./styles.module.css";
 
 const { Text } = Typography;
 
 export const Screen = () => {
+  const [inicial, setInicial] = useState(false);
+  const [buttonText, setButtonText] = useState("");
+
+  const handleTouchPlay = () => {
+    setInicial(!inicial);
+    setButtonText("Passando");
+  };
+
+  const handleTouchStop = () => {
+    setButtonText("Parado");
+  };
+
+  const handleTouchPause = () => {
+    setButtonText("Pausado");
+  };
+
+  const handleTouchBackward = () => {
+    setButtonText("Retrocedendo");
+  };
+
+  const handleTouchForward = () => {
+    setButtonText("Avançando");
+  };
+
+  const handleTouchSound = () => {
+    setButtonText("Som");
+  };
+
   return (
     <div className={style.container}>
       <Space className={style.areaVideo}>
-        <Text>Passando</Text>
+        <Text>{inicial ? buttonText : "..."}</Text>
         <div className={style.btnFullScreen}>
           <Tooltip title="fullscreen">
             <Button icon={<FullscreenOutlined />} />
@@ -25,26 +54,25 @@ export const Screen = () => {
       </Space>
       <Space className={style.controls}>
         <Tooltip title="play">
-          <Button type="primary" shape="circle" icon={<CaretRightOutlined />} />
+          <Button onClick={handleTouchPlay} type="primary" shape="circle" icon={<CaretRightOutlined />} />
         </Tooltip>
         <Tooltip title="stop">
-          <Button type="text" icon={<MinusSquareFilled />} />
+          <Button onClick={handleTouchStop} type="text" icon={<MinusSquareFilled />} />
         </Tooltip>
         <Tooltip title="pause">
-          <Button type="text" icon={<PauseCircleFilled />} />
+          <Button onClick={handleTouchPause} type="text" icon={<PauseCircleFilled />} />
         </Tooltip>
         <Tooltip title="fast back">
-          <Button type="text" icon={<FastBackwardFilled />} />
+          <Button onClick={handleTouchBackward} type="text" icon={<FastBackwardFilled />} />
         </Tooltip>
         <Tooltip title="fast forward">
-          <Button type="text" icon={<FastForwardFilled />} />
+          <Button onClick={handleTouchForward} type="text" icon={<FastForwardFilled />} />
         </Tooltip>
-        <Tooltip title="vol">
-          <div style={{ display: "flex" }}>
-            <Button type="text" icon={<SoundFilled />} />
-            <Slider defaultValue={30} className={style.slider} />
-          </div>
-        </Tooltip>
+
+        <div style={{ display: "flex" }}>
+          <Button onClick={handleTouchSound} type="text" icon={<SoundFilled />} />
+          <Slider defaultValue={30} className={style.slider} />
+        </div>
       </Space>
     </div>
   );
