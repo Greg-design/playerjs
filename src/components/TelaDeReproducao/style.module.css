@@ -1,6 +1,6 @@
 .areaVideo {
-  min-width: 920px;
-  min-height: 200px;
+  width: 920px;
+  height: 400px;
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
@@ -9,8 +9,8 @@
 }
 
 .fullscreen {
-  min-width: 1580px;
-  min-height: 720px;
+  width: 1580px;
+  height: calc(100vh - 100px);
   border: 3px solid #ccc;
 }
 
