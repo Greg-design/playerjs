@@ -1,4 +1,4 @@
-import { FullscreenOutlined } from "@ant-design/icons";
+import { FullscreenExitOutlined, FullscreenOutlined } from "@ant-design/icons";
 import { Button, Space, Tooltip, Typography } from "antd";
 import { useState } from "react";
 import { VideoEstado } from "../../pages/Screen";
@@ -29,7 +29,11 @@ const TelaDeReproducao = ({ video }: TelaDeReproducaoProps) => {
       <Text>{video}</Text>
       <div className={style.btnFullScreen}>
         <Tooltip title="fullscreen">
-          <Button onClick={handleClickFullScreen} icon={<FullscreenOutlined />} />
+          <Button
+            type="text"
+            onClick={handleClickFullScreen}
+            icon={fullscreen ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
+          />
         </Tooltip>
       </div>
     </Space>
