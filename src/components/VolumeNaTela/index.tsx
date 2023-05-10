@@ -1,6 +1,6 @@
 import { useVolume } from "../../contextVolume";
 
-const SliderLinearGradient = () => {
+export default function VolumeNaTela() {
   const { volume } = useVolume();
 
   return (
@@ -18,6 +18,4 @@ const SliderLinearGradient = () => {
       </svg>
     </div>
   );
-};
-
-export default SliderLinearGradient;
+}

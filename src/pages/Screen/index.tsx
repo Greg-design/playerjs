@@ -1,12 +1,13 @@
 import {
-  CaretRightOutlined,
-  FastBackwardFilled,
-  FastForwardFilled,
-  MinusSquareFilled,
-  PauseCircleFilled,
+  FastBackwardFilled as Back,
+  FastForwardFilled as Forward,
+  PauseCircleFilled as Pause,
+  CaretRightOutlined as Play,
+  MinusSquareFilled as Stop,
 } from "@ant-design/icons";
-import { Button, Space, Tooltip } from "antd";
+import { Space } from "antd";
 import { useState } from "react";
+import { ButtonAntd as PButtom } from "../../components/ButtonAntd";
 import SliderSound from "../../components/SliderSound";
 import TelaDeReproducao from "../../components/TelaDeReproducao";
 import style from "./styles.module.css";
@@ -21,26 +22,17 @@ export const Screen = () => {
     <div className={style.container}>
       <TelaDeReproducao video={video} />
       <Space className={style.controls}>
-        <Tooltip title="play">
-          <Button
-            onClick={handleClickControlesVideo("Passando")}
-            type="primary"
-            shape="circle"
-            icon={<CaretRightOutlined />}
-          />
-        </Tooltip>
-        <Tooltip title="stop">
-          <Button onClick={handleClickControlesVideo("Parado")} type="text" icon={<MinusSquareFilled />} />
-        </Tooltip>
-        <Tooltip title="pause">
-          <Button onClick={handleClickControlesVideo("Pausado")} type="text" icon={<PauseCircleFilled />} />
-        </Tooltip>
-        <Tooltip title="fast back">
-          <Button onClick={handleClickControlesVideo("Retrocedendo")} type="text" icon={<FastBackwardFilled />} />
-        </Tooltip>
-        <Tooltip title="fast forward">
-          <Button onClick={handleClickControlesVideo("Avançando")} type="text" icon={<FastForwardFilled />} />
-        </Tooltip>
+        <PButtom
+          tooltip="play"
+          onClick={handleClickControlesVideo("Passando")}
+          type="primary"
+          shape="circle"
+          icon={<Play />}
+        />
+        <PButtom tooltip="stop" onClick={handleClickControlesVideo("Parado")} type="text" icon={<Stop />} />
+        <PButtom tooltip="pause" onClick={handleClickControlesVideo("Pausado")} type="text" icon={<Pause />} />
+        <PButtom tooltip="retroceder" onClick={handleClickControlesVideo("Retrocedendo")} type="text" icon={<Back />} />
+        <PButtom tooltip="avançar" onClick={handleClickControlesVideo("Avançando")} type="text" icon={<Forward />} />
 
         <SliderSound />
       </Space>

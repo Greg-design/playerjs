@@ -2,7 +2,7 @@ import { FullscreenExitOutlined, FullscreenOutlined } from "@ant-design/icons";
 import { Button, Space, Tooltip, Typography } from "antd";
 import { useState } from "react";
 import { VideoEstado } from "../../pages/Screen";
-import SliderLinearGradient from "../SliderLinearGradient";
+import VolumeNaTela from "../VolumeNaTela";
 import style from "./style.module.css";
 
 const { Text } = Typography;
@@ -41,7 +41,7 @@ const TelaDeReproducao = ({ video }: TelaDeReproducaoProps) => {
           </Tooltip>
         </div>
         <div className={style.sliderGradient}>
-          <SliderLinearGradient />
+          <VolumeNaTela />
         </div>
       </Space>
     </div>
